@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - v0.1.0  # Or specify any branch you'd like to trigger the build on
+      - main  # Or specify any branch you'd like to trigger the build on
     paths:
       - 'Dockerfile'
       - 'SoC-odoo-community-17.0.20240313/**'
