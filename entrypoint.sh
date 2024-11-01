@@ -36,9 +36,7 @@ update_config "db_port" "$PORT"
 update_config "db_user" "$USER"
 update_config "db_password" "$PASSWORD"
 update_config "admin_passwd" "$MASTER_PASSWORD"
-#update_config "db_name" "soc_stage_$DB_NAME"
 update_config "data_dir" "$ODOO_DATA_DIR"
-# Execute the odoo-bin command with the configuration file
 mkdir -p $ODOO_DATA_DIR
 #chown -R odoo:odoo $ODOO_DATA_DIR
 exec $ODOO_HOME/odoo-bin -c $ODOO_RC "$@"
