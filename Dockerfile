@@ -17,6 +17,7 @@ RUN mkdir -p $ODOO_HOME $CONFIG_HOME
 
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y \
+    build-essential \
     zlib1g-dev \
     libsasl2-dev \
     libldap2-dev \
