@@ -3,7 +3,7 @@ FROM ubuntu:jammy
 MAINTAINER Onnet Solutions
 
 # Set environment variables
-ENV VERSION=17.0.20240313
+ENV VERSION=17.0.20240313.001
 ENV ODOO_HOME=/opt/soc/SoC-odoo-community-$VERSION
 ENV CONFIG_HOME=/etc/soc/SoC-odoo-community-$VERSION/conf
 ENV ODOO_RC=$CONFIG_HOME/odoo.conf
