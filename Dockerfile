@@ -1,5 +1,6 @@
 # Use Ubuntu 22.04 as the base image
-FROM ubuntu:22.04
+FROM ubuntu:Jammy
+MAINTAINER Onnet Solutions
 
 # Set environment variables
 ENV VERSION=17.0.20240313
@@ -32,6 +33,10 @@ RUN apt-get update && apt-get install -y \
     libxcb1-dev \
     wget \
     acl \
+    python3-dev \
+    libxml2-dev \ 
+    libxslt1-dev \
+    libssl-dev \ 
     python3-setuptools \
     python3-cffi \
     golang \
@@ -43,8 +48,13 @@ RUN apt-get update && apt-get install -y \
     xfonts-75dpi \
     xfonts-base \
     vim \
+    npm \
+    nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Install rtlcss
+RUN npm install -g rtlcss
 
 # Manually install libssl1.1
 RUN wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb \
