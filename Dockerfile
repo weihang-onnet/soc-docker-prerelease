@@ -53,6 +53,8 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+# Upgrade pip and Cython
+RUN pip3 install --upgrade pip setuptools wheel cython
 
 # Install rtlcss
 RUN npm install -g rtlcss
