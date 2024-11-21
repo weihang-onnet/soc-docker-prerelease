@@ -1,5 +1,5 @@
 # Use Ubuntu 22.04 as the base image
-FROM ubuntu:Jammy
+FROM ubuntu:jammy
 MAINTAINER Onnet Solutions
 
 # Set environment variables
