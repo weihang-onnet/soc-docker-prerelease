@@ -53,8 +53,6 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-# Upgrade pip and Cython
-RUN pip3 install --upgrade pip setuptools wheel cython
 
 # Install rtlcss
 RUN npm install -g rtlcss
@@ -70,7 +68,7 @@ RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkh
     && rm wkhtmltox_0.12.5-1.focal_amd64.deb
 
 # Copy application code and configuration files
-COPY SoC-odoo-community-$VERSION $ODOO_HOME
+COPY src $ODOO_HOME
 COPY odoo.conf $CONFIG_HOME
 COPY entrypoint.sh /
 
