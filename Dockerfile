@@ -48,7 +48,6 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     xfonts-75dpi \
     xfonts-base \
-    vim \
     npm \
     nodejs \
     && apt-get clean \
