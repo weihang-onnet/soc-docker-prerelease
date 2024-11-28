@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y \
     libfribidi-dev \
     libxcb1-dev \
     wget \
+    vim \
     acl \
     python3-dev \
     libxml2-dev \ 
