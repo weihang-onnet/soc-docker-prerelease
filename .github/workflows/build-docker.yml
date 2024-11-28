@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Specify the branch to trigger the build
+      - 'v*'  # Specify the branch to trigger the build
     paths:
       - Dockerfile
 
@@ -25,12 +25,17 @@ jobs:
       - name: Extract date
         id: vars
         run: echo "IMAGE_TAG=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
+
+      - name: Get version
+        run: |
+          TAG=$(basename ${GITHUB_REF})
+          echo "TAG=$TAG" >> $GITHUB_ENV
       
       - name: Build the Docker image
         run: |
           ls -la
-          docker build . -f Dockerfile -t weihangang/my-test-repo:${{ env.IMAGE_TAG }}
+          docker build . -f Dockerfile -t weihangang/my-test-repo:${{ env.TAG }}
       
       - name: Push the Docker image
         run: |
-          docker push weihangang/my-test-repo:${{ env.IMAGE_TAG }}
+          docker push weihangang/my-test-repo:${{ env.TAG }}
