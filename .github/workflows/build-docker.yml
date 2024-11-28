@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Specify the branch to trigger the build
+      - v*  # Specify the branch to trigger the build
     paths:
       - Dockerfile
 
