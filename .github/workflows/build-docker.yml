@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'v*'  # Specify the branch to trigger the build
-    paths:
-      - Dockerfile
+    #paths:
+   #   - Dockerfile
 
 jobs:
   build:
