@@ -33,6 +33,8 @@ RUN apt-get update && apt-get install -y \
     libfribidi-dev \
     libxcb1-dev \
     wget \
+    vim \
+    nano \
     acl \
     python3-dev \
     libxml2-dev \ 
@@ -44,7 +46,6 @@ RUN apt-get update && apt-get install -y \
     python3-psycopg2 \
     python3-pip \
     fontconfig \
-    vim \
     libxext6 \
     libxrender1 \
     xfonts-75dpi \

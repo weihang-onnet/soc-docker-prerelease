@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: 
-      - "v*"
+      - "feature-*"
+    paths-ignore:
+    - '.github/*'
   pull_request:
     types: 
       - opened
@@ -14,17 +16,14 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - name: Get version
-        run: |
-          TAG=$(basename ${GITHUB_REF})
-          echo "TAG=$TAG" >> $GITHUB_ENV
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          ref: ${{ env.TAG }}
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-   
+        with:
+          args: >
+            -Dsonar.coverage.exclusions=**   
    
