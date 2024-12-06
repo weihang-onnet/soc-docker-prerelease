@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     libxcb1-dev \
     wget \
     vim \
+    nano \
     acl \
     python3-dev \
     libxml2-dev \ 
