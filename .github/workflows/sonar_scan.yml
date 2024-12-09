@@ -12,18 +12,27 @@ on:
       - synchronized
       - reopened
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  codacy-analysis-cli:
+    name: Codacy Analysis CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-        with:
-          args: >
-            -Dsonar.coverage.exclusions=**   
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
+  #sonarcloud:
+  #  name: SonarCloud
+   # runs-on: ubuntu-latest
+    #steps:
+     # - uses: actions/checkout@v2
+      #  with:
+       #   fetch-depth: 0
+      #- name: SonarCloud Scan
+      #  uses: SonarSource/sonarcloud-github-action@master
+      # env:
+      #    SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+       # with:
+        #  args: >
+         #   -Dsonar.coverage.exclusions=**   
    
